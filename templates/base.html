@@ -10,6 +10,7 @@
 <link href='{% static "css/base.css"%}' rel="stylesheet">
 <link href='{% static "css/index.css"%}' rel="stylesheet">
 <link href='{% static "css/m.css"%}' rel="stylesheet">
+<link href="{% static "css/modify.css" %}" rel="stylesheet">
     {% block staticfile %}
     {% endblock %}
 <script src='{% static "js/jquery.min.js"%}' type="text/javascript"></script>
@@ -24,7 +25,7 @@
   <nav><div class="logo"><a href="/">Scott's Blog</a></div>
     <h2 id="mnavh"><span class="navicon"></span></h2>
     <ul id="starlist">
-      <li><a href="index">网站首页</a></li>
+      <li><a href="/index">网站首页</a></li>
       <li><a href="list.html">我的日记</a></li>
       <li><a href="about.html">关于我</a></li>
 {#      <li><a href="gbook.html">留言</a></li>#}
@@ -37,9 +38,12 @@
   <aside class="l_box">
       <div class="about_me">
         <h2>关于我</h2>
-        <ul>
-          <i><img src={% static "images/4.jpg"%}></i>
-          <p><b>杨青</b>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
+        <ul id="aboutme">
+          <i><img src={% static "images/self.jpg"%}></i>
+          <h1>Scott Yeung</h1>
+            <p>夫唯不争 故天下莫能与之争</p>
+            <p>Github:<a href="https://github.com/yeung66">yeung66</a></p>
+            <p>QQ: 407284292</p>
         </ul>
       </div>
 
@@ -55,23 +59,17 @@
       <div class="fenlei">
         <h2>文章分类</h2>
         <ul>
-          <li><a href="/">学无止境（33）</a></li>
-          <li><a href="/">日记（19）</a></li>
-          <li><a href="/">慢生活（520）</a></li>
-          <li><a href="/">美文欣赏（40）</a></li>
+          {% for t in types %}
+            <li><a href="/">{{ t.type }}（{{ t.id__count }}）</a></li>
+          {% endfor %}
         </ul>
       </div>
       <div class="tuijian">
-        <h2>站长推荐</h2>
+        <h2>站内推荐</h2>
         <ul>
-          <li><a href="/">你是什么人便会遇上什么人</a></li>
-          <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-          <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-          <li><a href="/">个人博客模板《绅士》后台管理</a></li>
-          <li><a href="/">你是什么人便会遇上什么人</a></li>
-          <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-          <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-          <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+            {% for r in recommand %}
+          <li><a href="/article/{{ r.id }}">{{ r.title }}</a></li>
+          {% endfor %}
         </ul>
       </div>
 
