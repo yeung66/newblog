@@ -4,7 +4,7 @@
 
 一直想运营一个博客，遂下定决心准备快速开发出一个简单的博客，也当是顺便练手。
 
-本项目后台部分使用Django框架，前端使用网上的[个人博客模板<<Simple>>](http://www.yangqq.com/download/div/2018-06-17/874.html)，暂定使用自带的后台管理，预期目标是具有markdown显示功能的个人博客系统
+本项目后台部分使用Django框架，前端使用网上的个人博客模板[ Simple ](http://www.yangqq.com/download/div/2018-06-17/874.html)，暂定使用自带的后台管理，预期目标是具有markdown显示功能的个人博客系统
 
 ## 开发环境
 
